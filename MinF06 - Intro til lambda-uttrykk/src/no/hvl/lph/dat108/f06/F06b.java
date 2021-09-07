@@ -45,6 +45,33 @@ public class F06b {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		System.out.println();
+		List<Person> personList = Arrays.asList(new Person("Anne", "Persen",40),
+				new Person("Per", "Andersen",50),
+				new Person("Knut", "Svendsen",60));
+		Collections.sort(personList);
+		System.out.println("bare sort, den bruker compareTo(enavn) fra Person klassen\n"+personList);
+		
+		Collections.sort(personList,new Comparator<Person>() {
+			@Override
+			public int compare(Person a, Person b) {
+				return a.fornavn.compareTo(b.fornavn);
+			}
+		});
+		System.out.println("sort ved fornavn med innerClass: \n"+personList);
+		
+		Collections.sort(personList,( a , b )-> a.fornavn.compareTo(b.fornavn));
+		System.out.println("sort ved fornavn med Lambda: \n"+personList);
+		
+		Collections.sort(personList,( a , b )-> a.fodselsaar - b.fodselsaar);
+		System.out.println("sort ved alder med lambda: \n"+personList);
 
 	}
 
