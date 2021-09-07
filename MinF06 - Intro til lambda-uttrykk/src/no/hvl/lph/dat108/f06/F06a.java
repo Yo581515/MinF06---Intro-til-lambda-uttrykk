@@ -69,9 +69,9 @@ public class F06a {
 		//Sortere liste av personer. Implementere standard sortering i
 		//Person.compareTo().
 		List<Person> listeAvPersoner = Arrays.asList(
-				new Person("Anne", "Persen"),
-				new Person("Per", "Andersen"),
-				new Person("Knut", "Svendsen"));
+				new Person("Anne", "Persen",40),
+				new Person("Per", "Andersen",50),
+				new Person("Knut", "Svendsen",60));
 		sorter(listeAvPersoner);
 		System.out.println(listeAvPersoner);
 		
@@ -84,12 +84,13 @@ public class F06a {
 		//Ønsker å sortere på fødselsår. Hva gjør vi?
 		//Vi kan også opprette et Sammenligner-objekt direkte via
 		//en anonym klasse ...
-//		sorter(listeAvPersoner, new Sammenligner<Person>() {
-//			@Override
-//			public int sammenlign(Person a, Person b) {
-//				return a.fodselsaar - b.fodselsaar;
-//			}
-//		});
-
+		sorter(listeAvPersoner, new Sammenligner<Person>() {
+			@Override
+			public int sammenlign(Person a, Person b) {
+				return a.fodselsaar - b.fodselsaar;
+			}
+		});
+		System.out.println(listeAvPersoner);
+		
 	}
 }
